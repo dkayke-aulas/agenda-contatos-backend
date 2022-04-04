@@ -1,4 +1,4 @@
-const { basePathData } = require("./default.constant");
+const { basePathData, usersFile, contactsFile } = require("./default.constant");
 const { StatusCodes } = require("http-status-codes");
 const jwt = require('jsonwebtoken');
 const fs = require('fs');
