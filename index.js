@@ -186,7 +186,7 @@ app.get('/contact/:id?', jwtValidation, (req, res) => {
 // Criar contato
 app.post('/contact', jwtValidation, (req, res) => {
 
-    const { nome, apelido, telefones, email, endereco, notas } = req.body;
+    const { nome, apelido, telefones, email, endereco, notas, foto = imgUserDafault } = req.body;
     const { idUsuario } = res.locals;
 
     try {
@@ -219,7 +219,8 @@ app.post('/contact', jwtValidation, (req, res) => {
             email: email || "",
             notas: notas || "",
             telefones: telefones || [],
-            endereco: endereco || { logradouro: "", cidade: "", estado: "", cep: "", pais: "" }
+            endereco: endereco || { logradouro: "", cidade: "", estado: "", cep: "", pais: "" },
+            foto: foto || imgUserDafault
         });
 
         const arquivo = fs.readFileSync(contactsFile, 'utf8');
@@ -238,11 +239,11 @@ app.post('/contact', jwtValidation, (req, res) => {
 // Atualizar contato
 app.patch('/contact', jwtValidation, (req, res) => {
 
-    const { idContato, nome, apelido, telefones, email, endereco, notas } = req.body;
+    const { idContato, nome, apelido, telefones, email, endereco, notas, foto } = req.body;
     const { idUsuario } = res.locals;
 
     try {
-        const dados = { id: idContato, nome, apelido, telefones, email, endereco, notas };
+        const dados = { id: idContato, nome, apelido, telefones, email, endereco, notas, foto };
 
         const validacao = validarParams(dados).aoMenosUmEId("contato");
         if (validacao.possuiErro) {
