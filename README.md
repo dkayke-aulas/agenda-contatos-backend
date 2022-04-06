@@ -72,6 +72,10 @@ http://localhost:5000/v1/
 
 <br />
 
+> **_NOTA:_**  Não é necessário enviar Token JWT via Authorization Header.
+
+<br />
+
 **Response**
 
 Sucesso
@@ -108,6 +112,10 @@ Sucesso
 |senha|sim|`string`|Senha|
 |nome|sim|`string`|Nome para perfil|
 |foto|não|`string` (base64)|Foto para perfil |
+
+<br />
+
+> **_NOTA:_**  Não é necessário enviar Token JWT via Authorization Header.
 
 <br />
 
@@ -149,6 +157,10 @@ Sucesso
 
 <br />
 
+> **_NOTA:_**  É necessário enviar Token JWT via Authorization Header.
+
+<br />
+
 **Response**
 
 Sucesso
@@ -184,6 +196,10 @@ Sucesso
 
 <br />
 
+> **_NOTA:_**  É necessário enviar Token JWT via Authorization Header.
+
+<br />
+
 **Response**
 
 Sucesso
@@ -215,6 +231,10 @@ Buscar todos contatos
 |**Nome**|**Obrigatório**|**Tipo**|**Descrição**|
 | :------------ | :------------ | :------------ | :------------ |
 |-|-|-|Não é necessário enviar nenhum parâmetro|
+
+<br />
+
+> **_NOTA:_**  É necessário enviar Token JWT via Authorization Header.
 
 <br />
 
@@ -296,6 +316,10 @@ Buscar contato específico
 
 <br />
 
+> **_NOTA:_**  É necessário enviar Token JWT via Authorization Header.
+
+<br />
+
 **Response**
 
 Sucesso
@@ -351,6 +375,10 @@ Sucesso
 
 <br />
 
+> **_NOTA:_**  É necessário enviar Token JWT via Authorization Header.
+
+<br />
+
 **Response**
 
 Sucesso
@@ -402,6 +430,10 @@ Sucesso
 
 <br />
 
+> **_NOTA:_**  É necessário enviar Token JWT via Authorization Header.
+
+<br />
+
 **Response**
 
 Sucesso
@@ -448,6 +480,10 @@ Sucesso
 
 <br />
 
+> **_NOTA:_**  É necessário enviar Token JWT via Authorization Header.
+
+<br />
+
 **Response**
 
 Sucesso
@@ -491,6 +527,48 @@ Os dois erros abaixo podem ser ocasionados devido ao envio incorreto do header "
     "mensagem": "ID de usuário deve ser informado",
     "status": 400
 }
+```
+
+<br />
+Caso você obtenha o erro abaixo no terminal, significa que já existe um outro terminal rodando a porta 5000 no seu projeto, você pode achar este terminal e encerrar o processo ou alterar a porta na última linha do index.js.
+
+```Terminal
+$ npm run dev
+
+> agenda-contatos-backend@0.0.1 dev C:\Users\danny\LetsCode\agenda-contatos-backend
+> nodemon index.js
+
+[nodemon] 2.0.7
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching path(s): *.*
+[nodemon] watching extensions: js,mjs,json
+[nodemon] starting `node index.js`
+events.js:352
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::5000
+    at Server.setupListenHandle [as _listen2] (net.js:1320:16)
+    at listenInCluster (net.js:1368:12)
+    at Server.listen (net.js:1454:7)
+    at Function.listen (C:\Users\danny\LetsCode\agenda-contatos-backend\node_modules\express\lib\application.js:618:24)
+    at Object.<anonymous> (C:\Users\danny\LetsCode\agenda-contatos-backend\index.js:325:5)
+    at Module._compile (internal/modules/cjs/loader.js:1085:14)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1114:10)
+    at Module.load (internal/modules/cjs/loader.js:950:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:790:14)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:76:12)
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (net.js:1347:8)
+    at processTicksAndRejections (internal/process/task_queues.js:82:21) {
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '::',
+  port: 5000
+}
+[nodemon] app crashed - waiting for file changes before starting...
+
 ```
 <br/>
 
