@@ -72,6 +72,10 @@ http://localhost:5000/v1/
 
 <br />
 
+> **_NOTA:_**  Não é necessário enviar Token JWT via Authorization Header.
+
+<br />
+
 **Response**
 
 Sucesso
@@ -108,6 +112,10 @@ Sucesso
 |senha|sim|`string`|Senha|
 |nome|sim|`string`|Nome para perfil|
 |foto|não|`string` (base64)|Foto para perfil |
+
+<br />
+
+> **_NOTA:_**  Não é necessário enviar Token JWT via Authorization Header.
 
 <br />
 
@@ -149,6 +157,10 @@ Sucesso
 
 <br />
 
+> **_NOTA:_**  É necessário enviar Token JWT via Authorization Header.
+
+<br />
+
 **Response**
 
 Sucesso
@@ -184,6 +196,10 @@ Sucesso
 
 <br />
 
+> **_NOTA:_**  É necessário enviar Token JWT via Authorization Header.
+
+<br />
+
 **Response**
 
 Sucesso
@@ -215,6 +231,10 @@ Buscar todos contatos
 |**Nome**|**Obrigatório**|**Tipo**|**Descrição**|
 | :------------ | :------------ | :------------ | :------------ |
 |-|-|-|Não é necessário enviar nenhum parâmetro|
+
+<br />
+
+> **_NOTA:_**  É necessário enviar Token JWT via Authorization Header.
 
 <br />
 
@@ -296,6 +316,10 @@ Buscar contato específico
 
 <br />
 
+> **_NOTA:_**  É necessário enviar Token JWT via Authorization Header.
+
+<br />
+
 **Response**
 
 Sucesso
@@ -351,6 +375,10 @@ Sucesso
 
 <br />
 
+> **_NOTA:_**  É necessário enviar Token JWT via Authorization Header.
+
+<br />
+
 **Response**
 
 Sucesso
@@ -402,6 +430,10 @@ Sucesso
 
 <br />
 
+> **_NOTA:_**  É necessário enviar Token JWT via Authorization Header.
+
+<br />
+
 **Response**
 
 Sucesso
@@ -445,6 +477,10 @@ Sucesso
 |**Nome**|**Obrigatório**|**Tipo**|**Descrição**|
 | :------------ | :------------ | :------------ | :------------ |
 |idContato|sim|`string` (UUID v4)|ID do contato que será deletado|
+
+<br />
+
+> **_NOTA:_**  É necessário enviar Token JWT via Authorization Header.
 
 <br />
 
