@@ -6,13 +6,14 @@ const uuid = require('uuid').v4;
 const cors = require('cors');
 const { StatusCodes } = require('http-status-codes');
 const { usersFile, contactsFile, imgUserDafault } = require('./assets/default.constant');
-const { jwtValidation, validarParams, tratarReqResGenerico, validarEndereco, validarTelefones } = require('./assets/util');
+const { jwtValidation, validarParams, tratarReqResGenerico, validarEndereco, validarTelefones, tratarLog } = require('./assets/util');
 
 const app = express()
 
 app.use(cors({ origin: true }));
 app.use(express.json());
 app.use(tratarReqResGenerico);
+app.use(tratarLog);
 
 // Autenticar usuário
 app.post('/auth', (req, res) => {

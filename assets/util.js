@@ -6,6 +6,7 @@ const fs = require('fs');
 module.exports = {
     jwtValidation,
     tratarReqResGenerico,
+    tratarLog,
     validarEndereco,
     validarTelefones,
     validarParams
@@ -28,6 +29,13 @@ function jwtValidation(req, res, next) {
     }
     next();
 };
+
+function tratarLog(req, _, next) {
+    console.info('\nOriginal Url:', `${req.method}: ${req.originalUrl}`);
+    console.info('Request Body:', req.body);
+    console.log("");
+    next();
+}
 
 function tratarReqResGenerico(req, res, next) {
     req.url = req.url.split('v1/').join("");
