@@ -16,16 +16,16 @@ function jwtValidation(req, res, next) {
     try {
         const { JWT_SECRET } = process.env;
         const auth = req.headers.authorization;
-        const token = auth.replace('Bearer ', '');
+        const token = auth.split(' ').join("").replace('Bearer', '');
         if (auth) {
             const decoded = jwt.verify(token, JWT_SECRET);
             res.locals = { idUsuario: decoded.user };
             console.info('JWT Middleware - Validação de Token: ' + decoded.user);
         }
-        else return res.status(StatusCodes.UNAUTHORIZED).json({ msg: "Token não enviado" }).end();
+        else return res.status(StatusCodes.UNAUTHORIZED).json({ msg: "Token não enviado" });
     }
     catch (err) {
-        return res.status(StatusCodes.UNAUTHORIZED).json({ msg: "Erro na validação de Token JWT" }).end();
+        return res.status(StatusCodes.UNAUTHORIZED).json({ msg: "Erro na validação de Token JWT" });
     }
     next();
 };
