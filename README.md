@@ -157,7 +157,7 @@ Sucesso
 
 <br />
 
-> **_NOTA:_**  É necessário enviar Token JWT via Authorization Header.
+> **_NOTA:_**  É necessário enviar Token JWT via Authorization Header. Não é necessário eviar o ID do usuário, pois ele já existe no Token JWT do Authorization Header.
 
 <br />
 
@@ -196,7 +196,7 @@ Sucesso
 
 <br />
 
-> **_NOTA:_**  É necessário enviar Token JWT via Authorization Header.
+> **_NOTA:_**  É necessário enviar Token JWT via Authorization Header. É necessário passar o ID do usuário para dupla validação (já existe no token enviado no header) antes da deleção do dado.
 
 <br />
 
@@ -251,6 +251,7 @@ Sucesso
             "apelido": "",
             "email": "",
             "notas": "",
+	    "foto": "data:image/png;base64,abcdefghijklmnopqrstuvwxyz",
             "telefones": [
                 {
                     "tipo": "casa",
@@ -272,6 +273,7 @@ Sucesso
             "apelido": "",
             "email": "",
             "notas": "",
+	    "foto": "data:image/png;base64,abcdefghijklmnopqrstuvwxyz",
             "telefones": [
                 {
                     "tipo": "celular",
@@ -332,6 +334,7 @@ Sucesso
         "apelido": "",
         "email": "",
         "notas": "",
+	"foto": "data:image/png;base64,abcdefghijklmnopqrstuvwxyz",
         "telefones": [
             {
                 "tipo": "casa",
@@ -372,6 +375,7 @@ Sucesso
 |email|não|`string`|E-mail do contato|
 |endereco|não|`objeto`|Endereço do contato<br/><br/> O objeto deve possuir as seguintes propriedades obrigatórias, que, porém permite-se a entrada do dado vazio: <br/><br/> **logradouro**: `string` <br/> **cidade**: `string` <br/> **estado**: `string` <br/> **cep**: `string` <br/> **pais**: `string` <br/> |
 |notas|não|`string`|Observações relevantes do contato|
+|foto|não|`string` (base64)|Nova foto para perfil |
 
 <br />
 
@@ -391,6 +395,7 @@ Sucesso
         "apelido": "",
         "email": "",
         "notas": "",
+	"foto": "data:image/png;base64,abcdefghijklmnopqrstuvwxyz",
         "telefones": [
             {
                 "tipo": "celular",
@@ -421,12 +426,14 @@ Sucesso
 
 |**Nome**|**Obrigatório**|**Tipo**|**Descrição**|
 | :------------ | :------------ | :------------ | :------------ |
+|idContato|sim|`string` (UUID v4)|ID do contato que será atualizado|
 |nome|parcial|`string`|Novo nome do contato|
 |apelido|parcial|`string`|Novo apelido do contato|
 |telefones|parcial|`array of object`|Todos telefones do contato, com os números atualizados<br/><br/> Cada objeto deve conter duas propriedades obrigatórias, são elas<br/><br/> **tipo** que deve ser string com os valores `casa` &#124; `trabalho` &#124; `celular` <br/><br/> **numero** que deve ser `string`, com o número do telefone em si|
 |email|parcial|`string`|Novo e-mail do contato|
 |endereco|parcial|`objeto`|Novo endereço do contato<br/><br/> O objeto deve possuir as seguintes propriedades obrigatórias, que, porém permite-se a entrada do dado vazio: <br/><br/> **logradouro**: `string` <br/> **cidade**: `string` <br/> **estado**: `string` <br/> **cep**: `string` <br/> **pais**: `string` <br/> |
 |notas|parcial|`string`|Observações relevantes do contato|
+|foto|parcial|`string` (base64)|Nova foto para perfil |
 
 <br />
 
@@ -446,6 +453,7 @@ Sucesso
         "apelido": "",
         "email": "",
         "notas": "",
+	"foto": "data:image/png;base64,abcdefghijklmnopqrstuvwxyz",
         "telefones": [
             {
                 "tipo": "celular",
