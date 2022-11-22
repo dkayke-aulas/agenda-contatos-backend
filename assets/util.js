@@ -68,11 +68,11 @@ function tratarReqResGenerico(req, res, next) {
 
 function validarEndereco(endereco) {
     const end = {
-        logradouro: endereco?.logradouro,
-        cidade: endereco?.cidade,
-        estado: endereco?.estado,
-        cep: endereco?.cep,
-        pais: endereco?.pais
+        logradouro: endereco && endereco.logradouro,
+        cidade: endereco && endereco.cidade,
+        estado: endereco && endereco.estado,
+        cep: endereco && endereco.cep,
+        pais: endereco && endereco.pais
     };
 
     const keys = Object.keys(end);
